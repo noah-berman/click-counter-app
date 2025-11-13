@@ -60,8 +60,8 @@ export const Analytics: React.FC = () => {
     return (
       <>
         <NavBar />
-        <div className="flex items-center justify-center min-h-screen bg-gray-800">
-          <div className="text-lg text-white">Loading analytics...</div>
+        <div className="flex items-center justify-center min-h-screen bg-gray-50 dark:bg-gray-800">
+          <div className="text-lg text-gray-900 dark:text-white">Loading analytics...</div>
         </div>
       </>
     );
@@ -70,10 +70,10 @@ export const Analytics: React.FC = () => {
   return (
     <>
       <NavBar />
-      <div className="min-h-screen bg-gray-800 py-8">
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-800 py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-6">
-            <div className="border-b border-gray-200">
+            <div className="border-b border-gray-200 dark:border-gray-700">
               <nav className="-mb-px flex space-x-8">
                 <button
                   onClick={() => setActiveTab('user')}
@@ -81,8 +81,8 @@ export const Analytics: React.FC = () => {
                     py-4 px-1 border-b-2 font-medium text-sm
                     ${
                       activeTab === 'user'
-                        ? 'border-blue-500 text-blue-600'
-                        : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                        ? 'border-blue-500 text-blue-600 dark:text-blue-400'
+                        : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-600'
                     }
                   `}
                 >
@@ -94,8 +94,8 @@ export const Analytics: React.FC = () => {
                     py-4 px-1 border-b-2 font-medium text-sm
                     ${
                       activeTab === 'global'
-                        ? 'border-blue-500 text-blue-600'
-                        : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                        ? 'border-blue-500 text-blue-600 dark:text-blue-400'
+                        : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-600'
                     }
                   `}
                 >
@@ -107,26 +107,26 @@ export const Analytics: React.FC = () => {
 
           {activeTab === 'user' && userAnalytics && (
             <div className="space-y-6">
-              <div className="bg-white shadow rounded-lg p-6">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              <div className="bg-white dark:bg-gray-900 shadow rounded-lg p-6">
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
                   Your Statistics
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div className="bg-blue-50 p-4 rounded-lg">
-                    <div className="text-sm text-gray-600">Total Clicks</div>
-                    <div className="text-3xl font-bold text-blue-600">
+                  <div className="bg-blue-50 dark:bg-blue-900/30 p-4 rounded-lg">
+                    <div className="text-sm text-gray-600 dark:text-gray-400">Total Clicks</div>
+                    <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">
                       {userAnalytics.totalClicks}
                     </div>
                   </div>
-                  <div className="bg-green-50 p-4 rounded-lg">
-                    <div className="text-sm text-gray-600">Clicks Today</div>
-                    <div className="text-3xl font-bold text-green-600">
+                  <div className="bg-green-50 dark:bg-green-900/30 p-4 rounded-lg">
+                    <div className="text-sm text-gray-600 dark:text-gray-400">Clicks Today</div>
+                    <div className="text-3xl font-bold text-green-600 dark:text-green-400">
                       {userAnalytics.clicksToday}
                     </div>
                   </div>
-                  <div className="bg-purple-50 p-4 rounded-lg">
-                    <div className="text-sm text-gray-600">Average Per Day</div>
-                    <div className="text-3xl font-bold text-purple-600">
+                  <div className="bg-purple-50 dark:bg-purple-900/30 p-4 rounded-lg">
+                    <div className="text-sm text-gray-600 dark:text-gray-400">Average Per Day</div>
+                    <div className="text-3xl font-bold text-purple-600 dark:text-purple-400">
                       {userAnalytics.averagePerDay.toFixed(2)}
                     </div>
                   </div>
@@ -137,37 +137,37 @@ export const Analytics: React.FC = () => {
 
           {activeTab === 'global' && globalAnalytics && (
             <div className="space-y-6">
-              <div className="bg-white shadow rounded-lg p-6">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              <div className="bg-white dark:bg-gray-900 shadow rounded-lg p-6">
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
                   Global Statistics
                 </h2>
-                <div className="bg-indigo-50 p-6 rounded-lg mb-6">
-                  <div className="text-sm text-gray-600">Total Platform Clicks</div>
-                  <div className="text-4xl font-bold text-indigo-600">
+                <div className="bg-indigo-50 dark:bg-indigo-900/30 p-6 rounded-lg mb-6">
+                  <div className="text-sm text-gray-600 dark:text-gray-400">Total Platform Clicks</div>
+                  <div className="text-4xl font-bold text-indigo-600 dark:text-indigo-400">
                     {globalAnalytics.totalClicks}
                   </div>
                 </div>
 
-                <h3 className="text-xl font-bold text-gray-900 mb-4">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
                   Top Clickers
                 </h3>
                 <div className="space-y-2">
                   {globalAnalytics.topUsers.map((topUser, index) => (
                     <div
                       key={topUser.user?.id || index}
-                      className="flex items-center justify-between p-4 bg-gray-50 rounded-lg"
+                      className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-800 rounded-lg"
                     >
                       <div className="flex items-center space-x-4">
-                        <div className="text-2xl font-bold text-gray-400">
+                        <div className="text-2xl font-bold text-gray-400 dark:text-gray-500">
                           #{index + 1}
                         </div>
                         <div>
-                          <div className="font-semibold text-gray-900">
+                          <div className="font-semibold text-gray-900 dark:text-white">
                             {topUser.user?.email || 'Unknown User'}
                           </div>
                         </div>
                       </div>
-                      <div className="text-xl font-bold text-blue-600">
+                      <div className="text-xl font-bold text-blue-600 dark:text-blue-400">
                         {topUser.clickCount} clicks
                       </div>
                     </div>
@@ -175,8 +175,8 @@ export const Analytics: React.FC = () => {
                 </div>
               </div>
 
-              <div className="bg-white shadow rounded-lg p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">
+              <div className="bg-white dark:bg-gray-900 shadow rounded-lg p-6">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
                   All Users' Combined Clicks Per Day
                 </h3>
                 
@@ -189,7 +189,7 @@ export const Analytics: React.FC = () => {
                       ${
                         dateRange === 30
                           ? 'bg-blue-600 text-white'
-                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                          : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
                       }
                     `}
                   >
@@ -202,7 +202,7 @@ export const Analytics: React.FC = () => {
                       ${
                         dateRange === 7
                           ? 'bg-blue-600 text-white'
-                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                          : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
                       }
                     `}
                   >
@@ -215,7 +215,7 @@ export const Analytics: React.FC = () => {
                       ${
                         dateRange === 1
                           ? 'bg-blue-600 text-white'
-                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                          : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
                       }
                     `}
                   >
@@ -225,7 +225,7 @@ export const Analytics: React.FC = () => {
 
                 {clicksPerDayLoading ? (
                   <div className="flex items-center justify-center h-64">
-                    <div className="text-lg text-gray-600">Loading chart data...</div>
+                    <div className="text-lg text-gray-600 dark:text-gray-400">Loading chart data...</div>
                   </div>
                 ) : clicksPerDay && clicksPerDay.clicksPerDay.length > 0 ? (
                   <ResponsiveContainer width="100%" height={400}>
@@ -264,7 +264,7 @@ export const Analytics: React.FC = () => {
                   </ResponsiveContainer>
                 ) : (
                   <div className="flex items-center justify-center h-64">
-                    <div className="text-lg text-gray-600">No click data available for this period</div>
+                    <div className="text-lg text-gray-600 dark:text-gray-400">No click data available for this period</div>
                   </div>
                 )}
               </div>
